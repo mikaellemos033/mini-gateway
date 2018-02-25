@@ -1,0 +1,17 @@
+{
+    "name": "mikaellemos033/minigateway",
+    "description": "pacote de avaliação, para um grande sistema de pagamentos",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "mikaellemos033",
+            "email": "mikaellemos033@gmai.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^7.0"
+    }
+}
