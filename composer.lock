@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mikaellemos033/santo.git",
-                "reference": "281a4a5cee96d852623771015c063d8903887371"
+                "reference": "4d95350adb4bc7cfa5df3bb5da5306f7ad3d537d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mikaellemos033/santo/zipball/281a4a5cee96d852623771015c063d8903887371",
-                "reference": "281a4a5cee96d852623771015c063d8903887371",
+                "url": "https://api.github.com/repos/mikaellemos033/santo/zipball/4d95350adb4bc7cfa5df3bb5da5306f7ad3d537d",
+                "reference": "4d95350adb4bc7cfa5df3bb5da5306f7ad3d537d",
                 "shasum": ""
             },
             "require": {
@@ -46,7 +46,7 @@
                 "source": "https://github.com/mikaellemos033/santo/tree/master",
                 "issues": "https://github.com/mikaellemos033/santo/issues"
             },
-            "time": "2018-02-25 21:19:08"
+            "time": "2018-02-25 21:52:51"
         },
         {
             "name": "psr/log",
