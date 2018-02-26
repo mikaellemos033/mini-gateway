@@ -1,3 +1,3 @@
-<?php
+<?php 
 
-echo "hello world";
+include '../bootstrap/start.php';
