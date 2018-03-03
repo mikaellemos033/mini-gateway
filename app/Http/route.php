@@ -2,6 +2,4 @@
 
 $route = new Sect\Http\Routing\Route();
 
-$route->get('/', function() {
-	return 'fucking the police';
-});
+$route->get('/', 'App\Http\Controllers\Home@index');

@@ -1,10 +1,12 @@
 <?php
 
+namespace App\Http\Controllers;
+
 class Home
 {
 	public function index()
 	{
-		return json_encode([
+		return single('json')->response([
 			'success' => true,
 			'message' => 'Api Conectada'
 		]);

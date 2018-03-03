@@ -1,12 +1,12 @@
-<?php
+<?php 
 
 namespace App\Providers;
 
-use Sect\Config\Raw as Config;
+use App\Render\Rest;
 use Sect\Providers\ServiceProvider;
 use Sect\Patterns\SingleObj;
 
-class Raw implements ServiceProvider
+class Response implements ServiceProvider
 {
 	public function boot()
 	{
@@ -15,8 +15,8 @@ class Raw implements ServiceProvider
 
 	public function register(SingleObj $singleton)
 	{
-		$singleton->register('config', function() {
-			return new Config(BASE . '/config');
+		$singleton->register('json', function() {
+			return new Rest();
 		});
 	}
 }
