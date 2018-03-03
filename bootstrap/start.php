@@ -8,7 +8,10 @@ define('SECT_BASE', sprintf('%s/../vendor/mikaellemos033/santo/src/Santo', __DIR
 $config   = new Sect\Config\Raw(SECT_BASE . '/Fire');
 $provider = new Sect\Providers\KickProvider();
 
-$provider->handle(array_merge($config->fire('Providers'), $config->config(BASE . '/config/Providers')));
+$provider->handle(array_merge(
+	$config->fire('Providers'), 
+	$config->config(BASE . '/config/Providers')
+));
 
 require (BASE . '/app/Http/route.php');
 return print($route->run());
