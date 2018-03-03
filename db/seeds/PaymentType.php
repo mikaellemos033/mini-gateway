@@ -20,12 +20,8 @@ class PaymentType extends AbstractSeed
                 'alias' => 'credit_card'
             ],
             [
-                'name'  => 'Cartão de Débito',
-                'alias' => 'debit_card'
-            ],
-            [
-                'name'  => 'Débito',
-                'alias' => 'debito'
+                'name'  => 'Boleto',
+                'alias' => 'ticket'
             ]
         ];
 
