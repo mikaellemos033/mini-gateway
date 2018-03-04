@@ -6,10 +6,12 @@ class CorporationTest extends PHPUnit_Framework_TestCase
 {
 	public function testCreate()
 	{
+		$name    = 'Mikael Corporation';
 		$service = new Corporation();
-		$corp    = $service->handle(['name' => 'Mikael Corporation']);
-		
-		die(var_dump($corp));
-		$this->assertTrue('true');
+		$corp    = $service->handle(compact('name'));
+				
+		$this->assertTrue($corp instanceof stdClass);
+		$this->assertEquals($name, $corp->name);
+		$this->assertTrue(strpos($corp->alias, 'mikael-corporation') !== false);
 	}
 }

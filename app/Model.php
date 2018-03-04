@@ -20,8 +20,11 @@ abstract class Model
 	}
 
 	public function find($id)
-	{
-		return $this->select()->where(sprintf('%s = :id'), [$this->primary_key => $id])->execute();
+	{		
+		$item = $this->select()->where(sprintf('%s = :id', $this->primary_key), compact('id'))->execute();
+		if (is_array($item)) return $item[0];
+
+		return $item;
 	}
 
 	public function update($id, array $params)
@@ -36,11 +39,11 @@ abstract class Model
 	public function create(array $params)
 	{		
 		foreach (array_keys($params) as $key)
-			if (in_array($key, $this->fillable)) unset($params[$key]);		
+			if (!in_array($key, $this->fillable)) unset($params[$key]);
 
 		$id = $this->connect->insert()->run($this->table, $params)->execute();
-		if ($id) return $this->find($id);
 
+		if ($id) return $this->find($id);
 		return false;
 	}
 

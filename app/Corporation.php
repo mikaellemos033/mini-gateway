@@ -33,7 +33,7 @@ class Corporation extends Model
 		do {
 
 			$exists = count($this->select()->where('alias = :alias', compact('alias'))->execute());
-			$alias  = $slug . ++$cont;
+			if($exists) $alias  = $slug . ++$cont;
 
 		} while($exists);
 
