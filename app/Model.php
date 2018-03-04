@@ -7,6 +7,7 @@ abstract class Model
 	protected $connect;
 	protected $table;
 	protected $fillable = [];
+	protected $primary_key = 'id';
 
 	public function __construct()
 	{
@@ -15,7 +16,12 @@ abstract class Model
 
 	public function all()
 	{
-		return $this->connect->select()->run($this->table)->execute();
+		return $this->select()->execute();
+	}
+
+	public function find($id)
+	{
+		return $this->select()->where(sprintf('%s = :id'), [$this->primary_key => $id])->execute();
 	}
 
 	public function update($id, array $params)
@@ -32,7 +38,15 @@ abstract class Model
 		foreach (array_keys($params) as $key)
 			if (in_array($key, $this->fillable)) unset($params[$key]);		
 
-		return $this->connect->insert()->run($this->table, $params)->execute();
+		$id = $this->connect->insert()->run($this->table, $params)->execute();
+		if ($id) return $this->find($id);
+
+		return false;
+	}
+
+	public function select()
+	{
+		return $this->connect->select()->run($this->table);
 	}
 
 	public function delete($where = null, array $binds = [])
