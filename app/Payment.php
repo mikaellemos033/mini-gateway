@@ -11,8 +11,7 @@ class Payment extends Model
 		'payment_type_id',
 		'corporation_id',
 		'user_id',
-		'amount',
-		'total_amount',
+		'amount',		
 		'created_at',
 		'updated_at'
 	];

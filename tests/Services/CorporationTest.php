@@ -8,7 +8,7 @@ class CorporationTest extends PHPUnit_Framework_TestCase
 	{
 		$name    = 'Mikael Corporation';
 		$service = new Corporation();
-		$corp    = $service->handle(compact('name'));
+		$corp    = $service->handle(compact('name'))->content;
 				
 		$this->assertTrue($corp instanceof stdClass);
 		$this->assertEquals($name, $corp->name);

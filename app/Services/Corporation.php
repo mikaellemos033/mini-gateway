@@ -9,11 +9,13 @@ class Corporation extends BaseService
 	public function boot(array $params = [])
 	{
 		$repositorie = new Model();	
-
-		return $repositorie->create([
+		$corporation  =  $repositorie->create([
 			'name'  => $params['name'],
 			'alias' => $repositorie->createAlias($params['name'])
 		]);
+
+		if ($corporation) return $this->success('Corporação criada com sucesso.', $corporation);
+		return $this->error('Houve um problema no cadastro da corporação');
 	}
 
 	public function rules()
