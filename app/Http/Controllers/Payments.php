@@ -24,7 +24,7 @@ class Payments
 		}
 
 		$data = (new FullPayments())->search($id);
-		
+
 		return single('json')->response([
 			'success' => true,
 			'message' => 'Pagamento encontrado.',
@@ -54,7 +54,7 @@ class Payments
 			if (!array_key_exists($field, $params)) return $this->invalidRequest($fields);
 
 		$service  = new PaymentCards();
-		$response = $service->handle($post);
+		$response = $service->handle($params);
 
 		if ($response->success) {
 
@@ -77,7 +77,8 @@ class Payments
 
 	public function ticket()
 	{
-		$params = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+		$params = filter_input_array(INPUT_POST, FILTER_DEFAULT);		
+
 		$fields = [
 			'corporation_id',
 			'amount',
@@ -91,7 +92,7 @@ class Payments
 			if (!array_key_exists($field, $params)) return $this->invalidRequest($fields);
 
 		$service  = new PaymentTicket();
-		$response = $service->handle($post);
+		$response = $service->handle($params);
 
 		if ($response->success) {
 
