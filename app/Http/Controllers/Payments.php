@@ -4,12 +4,34 @@ namespace App\Http\Controllers;
 
 use App\Services\Http\PaymentCards;
 use App\Services\Http\PaymentTicket;
+use App\Repositories\FullPayments;
+use App\Payment;
 
 class Payments
 {
 	public function index($id)
 	{
+		$repositorie = new Payment();
+		$payment     = $repositorie->find($id);
 
+		if (!count($payment)) {
+
+			return single('json')->response([
+				'success' => false,
+				'message' => 'Pagamento não encontrado.'
+			], 404);
+
+		}
+
+		$data = (new FullPayments())->search($id);
+		
+		return single('json')->response([
+			'success' => true,
+			'message' => 'Pagamento encontrado.',
+			'data'    => [
+				'payments' => $data
+			]
+		]);
 	}
 
 	public function credit()

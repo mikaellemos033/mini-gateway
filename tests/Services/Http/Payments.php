@@ -6,7 +6,7 @@ use App\Services\Corporation;
 
 class PaymentsTest extends PHPUnit_Framework_TestCase
 {
-	public function testCreatePaymentTicket()
+	public function testPaymentTicket()
 	{
 		$corp = new Corporation();
 		$corporation = $corp->handle(['name' => 'Moip']);
@@ -25,7 +25,7 @@ class PaymentsTest extends PHPUnit_Framework_TestCase
 		$this->assertEquals('Boleto criado com sucesso.', $payment->message);
 	}
 
-	public function testCreatePaymentCredit()
+	public function testPaymentcard()
 	{
 		$corp = new Corporation();
 		$corporation = $corp->handle(['name' => 'Moip']);

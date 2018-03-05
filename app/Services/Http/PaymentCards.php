@@ -14,7 +14,7 @@ class PaymentCards extends BaseService
 	public function boot(array $params = [])
 	{
 		$status  = (new PaymentStatus())->alias(PaymentStatus::PENDING);
-		$type    = (new PaymentType())->alias(PaymentType::TICKET);
+		$type    = (new PaymentType())->alias(PaymentType::CREDIT_CARD);
 		$users   = new Search();
 		$user    = $users->handle([
 			'name'     => $params['user_name'],
@@ -57,7 +57,7 @@ class PaymentCards extends BaseService
 			'user_document',
 			'card_name',
 			'card_number',
-			'card_code',			
+			'card_code',
 			'card_date'
 		];
 	}
