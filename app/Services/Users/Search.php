@@ -12,7 +12,7 @@ class Search extends BaseService
 		$repositorie = new User();
 		$user        = $repositorie->select()->where('document = :document and email = :email', ['email' => $params['email'], 'document' => $params['document']])->execute();
 
-		if (is_array($user)) return $this->success('Usuário encontrado.', $user[0]);
+		if (count($user)) return $this->success('Usuário encontrado.', $user[0]);
 		
 		$service = new Create();
 		return $service->handle($params);
@@ -20,8 +20,10 @@ class Search extends BaseService
 
 	public function rules()
 	{
-		'name',
-		'document',
-		'email'
+		return [
+			'name',
+			'document',
+			'email'
+		];
 	}
 }

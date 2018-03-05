@@ -31,12 +31,12 @@ abstract class BaseService
 		return $response;
 	}
 
-	final protected function success($message, $content)
+	final protected function success($message, $content = null)
 	{
 		return $this->response(true, $message, $content);
 	}
 
-	final protected function error($message, $content)
+	final protected function error($message, $content = null)
 	{
 		return $this->response(true, $message, $content);
 	}

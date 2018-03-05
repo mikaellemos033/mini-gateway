@@ -5,12 +5,13 @@ namespace App;
 use App\Traits\Finders;
 use App\Traits\SoftDelete;
 
-class PaymentType extends Model
+class PaymentStatus extends Model
 {
-	const TICKET      = 'ticket';
-	const CREDIT_CARD = 'credit_card';
-	
-	protected $table = 'payment_types';
+	const PENDING  = 'pending';
+	const PAID     = 'paid';
+	const CANCELED = 'canceled';
+
+	protected $table = 'payment_status';
 	protected $fillable = [
 		'name',
 		'alias',

@@ -10,12 +10,11 @@ class Create extends BaseService
 {
 	public function boot(array $params = [])
 	{
-		$repositorie        = new User();
-		$params['password'] = md5($params['password']);
 
 		try {
 
-			$user = $repositorie->create($params);
+			$repositorie = new User();		
+			$user        = $repositorie->create($params);
 			return $this->success('Usuário cadastrado.', $user);
 
 		} catch (Exception $e) {
@@ -25,9 +24,10 @@ class Create extends BaseService
 
 	public function rules()
 	{
-		'name',
-		'document',
-		'email',
-		'password'
+		return [
+			'name',
+			'document',
+			'email'
+		];
 	}
 }
